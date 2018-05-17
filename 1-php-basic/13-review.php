@@ -30,26 +30,48 @@ $authors= [
     [
         "name"=>"aaa",
         "age"=>"23",
-        "post-quantity"="15"
-    ]
+        "post-quantity"=>"15"
+    ],
     [
         "name"=>"ccc",
         "age"=>"23",
-        "post-quantity"="15"
-    ]
+        "post-quantity"=>"15"
+    ],
     [
         "name"=>"bbb",
         "age"=>"23",
-        "post-quantity"="15"
-    ]
+        "post-quantity"=>"15"
+    ],
     [
         "name"=>"eee",
         "age"=>"23",
-        "post-quantity"="15"
-    ]
+        "post-quantity"=>"15"
+    ],
     [
         "name"=>"rrr",
         "age"=>"23",
-        "post-quantity"="15"
+        "post-quantity"=>"15"
     ]
-]
+    ];
+echo '<table class="table">';
+echo "<thead>";
+  echo "<tr>";
+  echo '<th scope="col">#</th>';
+  echo '<th scope="col">Name</th>';
+  echo '<th scope="col">Age</th>';
+  echo '<th scope="col">Posts Quantity</th>';
+  echo "</tr>";
+echo "</thead>";
+echo "<tbody>";
+foreach($authors as $mem){
+    // foreach($mem as $k){
+        echo "<tr>";
+        echo '<th scope="row"></th>';
+        echo '<td>"$mem['name']"</td>';
+        echo '<td>Otto</td>';
+        echo '<td>@mdo</td>';
+        echo "<tr>";
+    // }
+}
+echo "</tbody>";
+echo "</table>";
