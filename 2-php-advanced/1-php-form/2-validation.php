@@ -91,3 +91,31 @@ echo "Your gender is : $gender";
 $name = $email = $gender = '';
 } */
 ?>
+<form action="<?php echo $_SERVER["PHP_SELF"]?>" method="post">
+    Name: <input type="text" name="name" id=""><br>
+    Email: <input type="text" name="email" id=""><br>
+    Gender:
+        <input type="radio" name="gender" id="" value="male"> Male
+        <input type="radio" name="gender" id="" value="female"> Female<br>
+    <input type="submit" value="submit">    
+</form>
+<?php
+    if($_SERVER["REQUEST_METHOD"]=="POST"){
+        $name=$_POST["name"];
+        $email=$_POST["email"];
+        $gender=$_POST["gender"];
+    }
+    function validateInput($data)
+    {
+        $data= trim($data);
+        $data = htmlspecialchars($data);
+        return $data;
+    }
+    function isEmpty($data){
+        if(strlen($data)>=0){
+            return false;
+        }else{
+            return true;
+        }
+    }
+?>

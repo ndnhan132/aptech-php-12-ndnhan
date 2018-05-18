@@ -42,4 +42,18 @@ echo "<h1>1. FORM HANDLING</h1>";
  *
  */
 
-echo "<br><br>DO EXERCISE INSIDE COMMENT CODE BELOW THIS LINE<hr>";
+echo "<br>DO EXERCISE INSIDE COMMENT CODE BELOW THIS LINE<br><hr>";
+?>
+
+<form action="<?php echo $_SERVER["PHP_SELF"] ?>" method="post">
+    name: <input type="text" name="name">
+    project: <input type="text" name="project">
+    <input type="submit" value="Submit"><br>
+</form>
+<?php
+if($_SERVER["REQUEST_METHOD"]=="POST"){
+    $name= $_POST["name"];
+    $project=$_POST["project"];
+    echo "name: $name and project: $project";
+}
+?>
