@@ -27,3 +27,14 @@ fclose($file);
  */
 
 echo "<br><br>DO EXERCISE INSIDE COMMENT CODE BELOW THIS LINE<hr>";
+?>
+
+<?php
+    $file= fopen("test.txt", "r") or die("can't open");
+    echo fread($file, filesize("test.txt"));
+    echo "<hr>";
+    while(!feof($file)){
+        echo fgets($file) . "<br>";
+    }
+    fclose($file);
+?>
