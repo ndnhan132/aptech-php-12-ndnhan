@@ -36,5 +36,8 @@ echo "<br><br>DO EXERCISE INSIDE COMMENT CODE BELOW THIS LINE<hr>";
     while(!feof($file)){
         echo fgets($file) . "<br>";
     }
+    echo "<hr>";
+    echo fgets($file);
+    echo "<hr>";
     fclose($file);
 ?>
