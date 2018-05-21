@@ -26,67 +26,41 @@ echo "<br><br>DO EXERCISE INSIDE COMMENT CODE BELOW THIS LINE<hr>";
 ?>
 
 <?php
-    $arr=array();
+session_start();
+?>
 
-    if($_SERVER["REQUEST_METHOD"]=="POST"){
-        $name = validateInput($_POST["name"]);
-        $email = validateInput($_POST["email"]);
-        $gender = validateInput($_POST["gender"]);
+<?php
+    $arr= $_SESSION["allData"];
+    // var_dump($arr);
+    $arr1=$arr["nErr"];
+    // var_dump($arr1);
+    // $name= $arr1["Name"];
+    // $name= $_SESSION["name"];
+    $name= $arr1["Name"];
+    $email= $arr1["Email"];
+    $gender= $arr1["Gender"];
+    $arr2= $arr["Err"];
+    // var_dump($arr2);
+    $nameErr= $arr2["Name"];
+    $emailErr= $arr2["Email"];
+    $genderErr= $arr2["Gender"];
 
-        $nameErr= checkName($name);
-        $emailErr= checkEmail($email);        
-        $genderErr= checkGender($gender);
-    }
-    function checkEmail($data){
-        $err="";
-        if($data){
-            if (!filter_var($data, FILTER_VALIDATE_EMAIL)) {
-                $err = "Invalid email format";
-                }
-            } else {
-                $err = "Email field is required";
-        }
-        return $err;    
-    }
-    function checkGender($data){
-        $err="";
-        if(!$data){
-            $err = "Gender field is required";
-        }
-        return $err;
-    }
-    function checkName($data){
-        $err="";
-        if($data){
-            if(!preg_match("/^[a-zA-z ]*$/", $data)) {
-                $err="Only letters and white space allowed";
-             }
-        }else{
-                $err = "Name field is required";
-        }
-        return $err;
-    }
-    function addArr($key, $value){
+    $arr1= $arr2= $arr= "";
 
-    }
     function showErr($err){
         if(isset($err)&& empty(!$err)){
             echo "$err";
         }
     }
-    function validateInput($data)
-    {
-        $data= trim($data);                 //loai bo ki tu thua
-        $data = stripslashes($data);        //nó xóa các ký tự \ trong chuỗi $str
-        $data = htmlspecialchars($data);    //chuyển các thể html trong chuỗi $str sang  dạng thực thể của chúng
-        return $data;                                      //specialchars bo ki tu dac biet ma php bi loi
-    }
+
+
+    var_dump(!empty($name));
 ?>
 
-<form action="<?php echo $_SERVER["PHP_SELF"]?>" method="post">
-    Name: <input type="text" name="name" id="">
+<form action="check-validation.php" method="post">
+    Name: <input type="text" name="name" id="" value="<?php if(!empty($name)){ echo "$name";} ?>">
       <p><?php  showErr($nameErr); ?></p><br>
-    Email: <input type="text" name="email" id="">
+    Email: <input type="text" name="email" id="" value="<?php if(!empty($email)){ echo "$email";} ?>">
     <p><?php showErr($emailErr); ?></p><br>
     Gender:
         <input type="radio" name="gender" id="" value="male" checked="checked"> Male
@@ -94,3 +68,11 @@ echo "<br><br>DO EXERCISE INSIDE COMMENT CODE BELOW THIS LINE<hr>";
         <p><?php showErr($genderErr); ?></p><br>
     <input type="submit" value="submit">    
 </form>
+<?php
+if (!$nameErr && !$emailErr && !$genderErr) {
+echo "Your name is : $name<br>";
+echo "Your email is : $email<br>";
+echo "Your gender is : $gender";
+$name = $email = $gender = '';
+} 
+?>

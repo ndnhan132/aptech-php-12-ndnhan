@@ -43,3 +43,17 @@ fclose($file);
  */
 
 echo "<br><br>DO EXERCISE INSIDE COMMENT CODE BELOW THIS LINE<hr>";
+$file=fopen("ndnhan.txt","w") or die("can't open");
+fwrite($file, "Dinh Nhan");
+fclose($file);
+echo readfile("ndnhan.txt");
+
+$file= fopen("ndnhan.txt", "a+") or die("can't open");
+fwrite($file, "\nmyProject");
+fclose($file);
+
+$file= fopen("ndnhan.txt", "r") or die("die");
+while (!feof($file)) {
+    echo fgets($file) . "<br>";
+    }
+    fclose($file);
