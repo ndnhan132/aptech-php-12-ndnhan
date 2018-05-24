@@ -28,3 +28,17 @@ $conn->close();
  */
 
 echo "<br><br>DO EXERCISE INSIDE COMMENT CODE BELOW THIS LINE<hr>";
+    ?>
+
+
+    <?php
+        require "./helper.php";
+        $conn= connectDatabase();
+        $sql= "CREATE DATABASE ndnhan";
+        if($conn->query($sql)===TRUE){
+            echo " Db created successfully";
+        }else{
+            echo $conn->error;
+        }
+        $conn->close();
+    ?>

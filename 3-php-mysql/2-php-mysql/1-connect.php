@@ -28,4 +28,14 @@ echo "Connected successfully";
 $conn->close();
  */
 
-echo "<br><br>DO EXERCISE INSIDE COMMENT CODE BELOW THIS LINE<hr>";
+ ?>
+
+ <?php
+    echo "<br><br>DO EXERCISE INSIDE COMMENT CODE BELOW THIS LINE<hr>"; 
+    $conn= new mysqli("localhost", "root, ");
+    if(!$conn){
+        die("can't connect". mysqli_connect_error());
+    }   
+    echo "kntc";
+    $conn->close();
+?>

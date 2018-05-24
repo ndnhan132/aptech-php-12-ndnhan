@@ -39,3 +39,28 @@ $conn->close();
  */
 
 echo "<br><br>DO EXERCISE INSIDE COMMENT CODE BELOW THIS LINE<hr>";
+?>
+
+
+<?php
+    require "./helper.php";
+    $conn=connectDatabase();
+
+    $sql= "CREATE TABLE ndnhan.user(
+        uId int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+        uLastName varchar(255),
+        uFirstName varchar(255),
+        uEmail varchar(255) NOT NULL UNIQUE,
+        uRole int NOT NULL DEFAULT 2,
+        uState int NOT NULL DEFAULT 1,
+        uCreatedDate datetime NOT NULL DEFAULT NOW(),
+        uModifiedDate datetime
+    )";
+
+    if($conn->query($sql)===true){
+        echo "success";
+    }else{
+        echo $conn->error;
+    }
+    $conn->close();
+?>
