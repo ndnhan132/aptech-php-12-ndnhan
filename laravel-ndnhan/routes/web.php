@@ -37,3 +37,6 @@ Route::get('/child', function (){
 Route::get('/nhan/', function (){
    return view('nhan');
 });
+Route::get('/blog/', function (){
+    return view('blog');
+});
