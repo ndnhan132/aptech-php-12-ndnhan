@@ -65,7 +65,7 @@
         @show
 
          @section('footer')
-        <footer class="row mx-0 d-flex flex-collumn justify-content-center align-items-center text-center border-top border-dark mt-4 py-5">
+        <footer class="row mx-0 d-flex flex-column justify-content-center align-items-center text-center border-top border-dark mt-4 py-5">
             <p class="col-12">Blog template built for <a href="">Bootstrap</a> by <a href="">@mdo</a>.</p>
             <a href="" class="col-12">Back to top</a>
         </footer>

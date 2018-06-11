@@ -11,32 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('aaaa', function () {
-   return view('file1');
-});
-Route::get('ooo', function (){
-    return "aaaa";
-});
-Route::view('bbb', 'file1', ['name' => "mmm"] );
+Route::get('/', 'UserController@showTable');
 
-Route::get('/user/{id}', function ($id){
-    return $id;
-});
-Route::get('/id/{id}/name/{name}', function ($id, $name){
-    echo "$id+$name";
-});
-Route::get('/app', function (){
-    return view('layouts/app');
-});
-Route::get('/child', function (){
-    return view('layouts/child');
-});
-Route::get('/nhan/', function (){
-   return view('nhan');
-});
-Route::get('/blog/', function (){
-    return view('blog');
-});
+Route::get('/name', 'UserController@show');
+
+Route::get('/blog', 'UserController@blog');
+
+Route::get('/user/{id}', 'UserController@getUser');

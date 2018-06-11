@@ -7,11 +7,22 @@
  */
 
 namespace App\Http\Controllers;
-
+use App\User;
 
 class UserController extends Controller
 {
-    public function show($id){
-        return view(wellcome);
+    public function show(){
+    }
+
+    public function blog(){
+        return view('blog');
+    }
+    public  function getUser($id){
+        $user= USER::select()->get()->first();
+        return $user;
+    }
+    public  function showTable(){
+        $user =User::all();
+        return view('table', ['users'=> $user]);
     }
 }
